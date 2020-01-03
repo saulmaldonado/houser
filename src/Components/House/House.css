@@ -1,0 +1,12 @@
+.titleHouse{
+    font-size: 25px;
+    padding: 15px;
+    float: left;
+    text-align: left;
+}
+
+.houses {
+    display: flex;
+    flex-direction: column;
+
+}

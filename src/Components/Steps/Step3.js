@@ -11,12 +11,14 @@ export default class Step3 extends React.Component{
             mortgage: store.getState().mortgage,
             rent: store.getState().rent
         }
+        this.handelInputChange = this.handelInputChange.bind(this)
     }
 
-    handelInputChange = (e) => {
+    handelInputChange(e){
         this.setState({
             [e.target.name]: e.target.value 
         })
+        console.log(this.state)
     }
 
     saveChanges = () => {
@@ -47,14 +49,17 @@ export default class Step3 extends React.Component{
             this.cancel()
             this.props.history.go(-3)
         })
+    .catch(err => {
+        console.log(err)
+    })
     }
 
     render(){
-        console.log(this.props);
 
 
         return(
             <div>
+                <p>{`Recommended Rent: $${this.state.mortgage * 1.25}`}</p>
                 <p>Monthly Mortgage Amount</p>
                 <input placeholder='Monthly Mortgage Amount' name='mortgage' value={this.state.mortgage} onChange={this.handelInputChange}/>
                 <p>Desired Monthly Rent</p>

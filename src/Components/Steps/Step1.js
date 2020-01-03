@@ -20,6 +20,7 @@ export default class Step1 extends React.Component{
         this.setState({
             [e.target.name]: e.target.value 
         })
+        
     }
 
     componentDidMount = () => {

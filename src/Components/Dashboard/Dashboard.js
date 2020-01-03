@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import House from '../House/House'
+import './Dashboard.css'
 
 export default class Dashboard extends React.Component {
     constructor(){
@@ -17,6 +18,9 @@ export default class Dashboard extends React.Component {
         .then(houses => {
             this.setState({houses: houses.data})
         })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     componentDidMount(){
@@ -29,6 +33,9 @@ export default class Dashboard extends React.Component {
             this.setState({houses: houses.data})
             console.log('house deleted')
         })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     render(){
@@ -36,38 +43,41 @@ export default class Dashboard extends React.Component {
         console.log(this.state)
 
         let housesMapped = this.state.houses.map((ele, i) => {
-            return   <div key={i}>
-                         <p>
+            return   <div className='house' key={i}>
+                         <div>
                          {ele.name}
-                         </p>
-                         <p>
+                         </div>
+                         <div>
                          {ele.address}
-                         </p>
-                         <p>
+                         </div>
+                         <div>
                          {ele.city}
-                         </p>
-                         <p>
+                         </div>
+                         <div>
                          {ele.state}
-                         </p>
-                         <p>
+                         </div>
+                         <div>
                          {ele.zipcode}
-                         </p>
+                         </div>
                          <img src={ele.image}></img>
-                         <p>
-                         {`$${ele.mortgage}`}
-                         </p>
-                         <p>
-                         {`$${ele.rent}`}
-                         </p>
+                         <div>
+                         {`mortgage: $${ele.mortgage}`}
+                         </div>
+                         <div>
+                             
+                         {`rent: $${ele.rent}`}
+                         </div>
                          <button onClick={() => this.deleteHouse(ele.house_id)}>delete</button> 
                      </div>
         })
 
         return(
-            <div>
-                <div >Dashboard</div>
+            <div  className='dashboard' >
+                <div className='title'>
+                    <div>Dashboard</div>
+                    <Link to='/wizard/step1'><button className='addNew'>Add New Property</button></Link>
+                </div>
                 <House houses={housesMapped} />
-                <Link to='/wizard/step1'><button>Add New Property</button></Link>
             </div>
 
         )

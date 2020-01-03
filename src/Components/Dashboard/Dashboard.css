@@ -1,0 +1,35 @@
+.dashboard {
+    border: black solid 1px;
+    margin-top: 8vh;
+    padding: 20px;
+    background-color: #e5f4ec;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    
+    font-size: 50px;
+    border-bottom: black solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    
+}
+.addNew{
+    background-color: #8aea92;
+    border:none;
+    font-size: 25px;
+    padding: 10px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.house{
+    border: black solid 1px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #DEDEDE;
+
+}

@@ -1,16 +1,8 @@
 import React from 'react'
+import './Header.css'
 
-export default class Header extends React.Component {
-    constructor(){
-        super()
-        this.state={
-
-        }
-    }
-
-    render(){
-        return(
-            <div>Header</div>
-        )
-    }
+export default function Header() {
+    return(
+        <div className='header'>🏠 Houser</div>
+    )
 }
